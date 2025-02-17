@@ -1,0 +1,19 @@
+[package]
+name = "bluez-zbus"
+version = "0.1.0"
+description = "dbus bindings for org.bluez with zbus"
+repository = ""
+edition = "2021"
+license = ""
+keywords = ["dbus", "bluez", "zbus", "bluetooth"]
+
+[dependencies]
+futures-channel = "0.3.30"
+futures-util = "0.3.30"
+tracing = "0.1.40"
+zbus = { version = "4.2.1" }
+tokio = { version = "1", features = ["full"] }
+tracing-subscriber = "0.3.18"
+anyhow = { version = "1" }
+
+
