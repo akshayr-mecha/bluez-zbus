@@ -4,15 +4,19 @@ use std::process::ExitCode;
 async fn main() -> Result<ExitCode, Box<dyn std::error::Error>> {
     let connection = zbus::Connection::system().await?;
 
+    println!("finding adapters");
     let adapters = bluez_zbus::get_adapters(&connection).await?;
+    println!("adapters found");
 
     //Start discovery
+    println!("starting discovery");
     futures_util::future::join_all(
         adapters
             .iter()
             .map(|(_path, adapter)| adapter.start_discovery()),
     )
     .await;
+    println!("discovery completed");
 
     //Get devices
     match bluez_zbus::get_devices(&connection, None).await {
@@ -37,7 +41,7 @@ async fn main() -> Result<ExitCode, Box<dyn std::error::Error>> {
 
                 println!("{} ({})", name, icon);
 
-                if name == "" {
+                if name == "white11-cell" {
                     if proxy.device.paired().await? {
                         proxy.device.cancel_pairing().await?;
                     } else {
