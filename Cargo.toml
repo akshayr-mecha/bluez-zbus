@@ -16,4 +16,8 @@ tokio = { version = "1", features = ["full"] }
 tracing-subscriber = "0.3.18"
 anyhow = { version = "1" }
 
+mctk_core = { git = "https://github.com/mecha-org/mctk.git" }
+mctk_smithay = { git = "https://github.com/mecha-org/mctk.git" }
+mctk_macros = { git = "https://github.com/mecha-org/mctk.git" }
+
 
