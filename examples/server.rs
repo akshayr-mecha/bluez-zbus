@@ -172,7 +172,7 @@ impl Component for App {
                         cross_alignment: Alignment::Center
                 ]
             )
-            .push(node!(Text::new(txt!(message)).style("font_size", 24.), lay![size: [Auto, 35.]]))
+            .push(node!(Text::new(txt!(message)).style("font_size", 24.), lay![size: [Auto, 35.], margin: [0., 0., 20., 0.]]))
             .push(node!(Text::new(txt!(passkey)).style("font_size", 40.), lay![size: [Auto, 65.]])))
             .push(
                 node!(
